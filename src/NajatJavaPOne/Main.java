@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Stack;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.HashMap;
@@ -26,6 +27,9 @@ public class Main {
 		System.out.println(" -Press Number(11) to Calculate multiplication factorial.");
 		System.out.println(" -Press Number(12) to Calculate Fibonacci series.");
 		System.out.println(" -Press Number(13) to enter input for (Inheritance) + display value using(toString) + check student age from studentAge method.");
+		System.out.println(" -Press Number(14) to enter subject name, and display it. + created interface page + added in subject class implements interfaceName  ");
+		System.out.println(" -Press Number(15) Finalizer/Deconstractor Method");
+		System.out.println(" -Press Number(16) Factorial and Fibonacci Series using Solid Principle");
 		System.out.println(" - 2 attempts only to give mark value of Assignments, otherwise the mark will be zero");
 	}
 	
@@ -45,7 +49,7 @@ public class Main {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Throwable {
 		
 Scanner s=new Scanner(System.in);
 		
@@ -125,6 +129,8 @@ try {
 		System.out.println("12:Fibonacci series. using (Recurssion Method)");
 		System.out.println("13:Enter input for (Inheritance) using (parameter constructor with super keyword) for Student ");
 		System.out.println("14:Enter subject name using (Interface) used class subject, and display it.");
+		System.out.println("15:Finalizer/Deconstractor Method.");
+		System.out.println("16:Factorial and fiboncci series using Solid Principle");
 		
 		System.out.println("*******************************");
 		System.out.println("Enter a number from menu: ");
@@ -522,6 +528,38 @@ try {
 			
 			Subject subjObjInterface=new Subject();
 			subjObjInterface.subjectInterfacee(subjName);
+			System.out.println("*******************************");
+			break;
+		}case 15:{
+			System.out.println("Finalizer/Deconstructor Method:-");
+			
+			School schoolObjFinalizer= new School();
+			Student studentObjFinalizer= new Student();
+			Subject subjectObjFinalizer= new Subject();
+			Mark markObjFinalizer= new Mark();
+			
+			schoolObjFinalizer.finalize();
+			studentObjFinalizer.finalize();
+			subjectObjFinalizer.finalize();
+			markObjFinalizer.finalize();
+			System.out.println("*******************************");
+			break;
+		}case 16:{
+			System.out.println("Factorial and Fibonacci using Solid Principle:-");
+            //should create new page/class for Factorial and fibonacci
+			
+			Factorial factorialObj=new Factorial();
+		//	FibonacciSeries fibonacciObj=new FibonacciSeries();
+			
+			System.out.println("Enter a number for Factorial:");
+			int factorialNo=s.nextInt();
+			
+			System.out.println("Enter a number for Fibonacci series:");
+			int fibo=s.nextInt();
+			
+			// both way are correct for Solid principle using define object or className.
+			System.out.println("factorial= "+factorialObj.factorial(factorialNo));
+			System.out.println("fibonacci series= "+FibonacciSeries.fibonacciSeries(fibo));
 			System.out.println("*******************************");
 			break;
 		}default:{

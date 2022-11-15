@@ -57,6 +57,21 @@ public void subjectInterfacee(String subjectName) {
 	
 }
 
+
+//for finalizer method:-
+
+	protected void finalize() throws Throwable
+	{
+		try {
+			System.out.println("Subject has been finalized successfully");
+		}catch(Throwable e) {
+			throw e;
+		}finally {
+			super.finalize();
+		}
+	}
+
+
 }
 
 

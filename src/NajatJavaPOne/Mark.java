@@ -31,6 +31,21 @@ public class Mark {
 	 public int getMarkOfAssignment2() {
 			return markOfAssignment2;
 		}
+	 
+	 
+	// for finalizer method:-
+		
+		protected void finalize() throws Throwable
+		{
+			try {
+				System.out.println("Mark has been finalized successfully");
+			}catch(Throwable e) {
+				throw e;
+			}finally {
+				super.finalize();
+			}
+		}
+
 
 }
 

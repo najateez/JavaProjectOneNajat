@@ -100,6 +100,20 @@ public Student() {
 	super();
 }
 
+//for finalizer method:-
+
+	protected void finalize() throws Throwable
+	{
+		try {
+			System.out.println("Student has been finalized successfully");
+		}catch(Throwable e) {
+			throw e;
+		}finally {
+			super.finalize();
+		}
+	}
+
+
 
 }
 

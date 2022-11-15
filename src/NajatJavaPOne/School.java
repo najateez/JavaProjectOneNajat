@@ -57,6 +57,20 @@ public class School {
 	public ArrayList<Student> getTheStudArrayList(){
 		return theStud;
 	}
+	
+	
+	// for finalizer method:-
+	
+	protected void finalize() throws Throwable
+	{
+		try {
+			System.out.println("School has been finalized successfully");
+		}catch(Throwable e) {
+			throw e;
+		}finally {
+			super.finalize();
+		}
+	}
 
 	}
 
