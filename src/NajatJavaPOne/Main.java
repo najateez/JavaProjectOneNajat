@@ -30,6 +30,8 @@ public class Main {
 		System.out.println(" -Press Number(14) to enter subject name, and display it. + created interface page + added in subject class implements interfaceName  ");
 		System.out.println(" -Press Number(15) Finalizer/Deconstractor Method");
 		System.out.println(" -Press Number(16) Factorial and Fibonacci Series using Solid Principle");
+		System.out.println(" -Press Number(17) Relationship (Aggregation and Composition).");
+		System.out.println(" -Press Number(18) Final keyword.");
 		System.out.println(" - 2 attempts only to give mark value of Assignments, otherwise the mark will be zero");
 	}
 	
@@ -131,6 +133,8 @@ try {
 		System.out.println("14:Enter subject name using (Interface) used class subject, and display it.");
 		System.out.println("15:Finalizer/Deconstractor Method.");
 		System.out.println("16:Factorial and fiboncci series using Solid Principle");
+		System.out.println("17:Relationship (Aggregation and Composition)");
+		System.out.println("18:Final keyword");
 		
 		System.out.println("*******************************");
 		System.out.println("Enter a number from menu: ");
@@ -560,6 +564,24 @@ try {
 			// both way are correct for Solid principle using define object or className.
 			System.out.println("factorial= "+factorialObj.factorial(factorialNo));
 			System.out.println("fibonacci series= "+FibonacciSeries.fibonacciSeries(fibo));
+			System.out.println("*******************************");
+			break;
+		}case 17:{
+System.out.println("Relationship (Aggregation and Composition):-");
+			
+			Department dept=new Department(18891,"IT");
+			Employee Teacher=new Employee("16j1514216", 1300.5, "Najateez","Salim","Alkhatri","female","8th/june/1996",dept);
+			Employee schoolSecurityGuard=new Employee("436kk2", 320.5, "Jhony","rajan","shareef","male","18th/April/1990",dept);
+			
+			System.out.println(Teacher.toString());
+			System.out.println(schoolSecurityGuard.toString());
+			System.out.println("*******************************");
+			break;
+		}case 18:{
+            System.out.println("Final keyword:-");
+			
+			Admin adminFinal=new Admin(435,"AlKhatria","Najatooh","AlkhatriNajateez",98871234, "female");
+			System.out.println(adminFinal.toString());
 			System.out.println("*******************************");
 			break;
 		}default:{
