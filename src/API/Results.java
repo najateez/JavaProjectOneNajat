@@ -1,23 +1,21 @@
 package API;
 
+//The main class of Results.java json is = class JsonToJavaObject.java
 public class Results {
 	
 	private String gender;
 	private String email;
 	private String phone;
 	private String cell;
-	private String nut;
+	private String nat;
 	
-	private Name name;
-	private Location location;
-	private Street street;
-	private Coordinates coordinates;
-	private TimeZone timeZone;
-	private Login login;
-	private DOB dob;
-	private Registered registered;
-	private Id id;
-	private Picture pic;
+	Name name;
+	Location location;
+	Login login;
+	DOB dob;
+	Registered registered;
+	Id id;
+	Picture pics;
 	
 	public String getGender() {
 		return gender;
@@ -43,11 +41,11 @@ public class Results {
 	public void setCell(String cell) {
 		this.cell = cell;
 	}
-	public String getNut() {
-		return nut;
+	public String getNat() {
+		return nat;
 	}
-	public void setNut(String nut) {
-		this.nut = nut;
+	public void setNat(String nat) {
+		this.nat = nat;
 	}
 	public Name getName() {
 		return name;
@@ -60,24 +58,6 @@ public class Results {
 	}
 	public void setLocation(Location location) {
 		this.location = location;
-	}
-	public Street getStreet() {
-		return street;
-	}
-	public void setStreet(Street street) {
-		this.street = street;
-	}
-	public Coordinates getCoordinates() {
-		return coordinates;
-	}
-	public void setCoordinates(Coordinates coordinates) {
-		this.coordinates = coordinates;
-	}
-	public TimeZone getTimeZone() {
-		return timeZone;
-	}
-	public void setTimeZone(TimeZone timeZone) {
-		this.timeZone = timeZone;
 	}
 	public Login getLogin() {
 		return login;
@@ -103,11 +83,10 @@ public class Results {
 	public void setId(Id id) {
 		this.id = id;
 	}
-	public Picture getPic() {
-		return pic;
+	public Picture getPics() {
+		return pics;
 	}
-	public void setPic(Picture pic) {
-		this.pic = pic;
+	public void setPics(Picture pics) {
+		this.pics = pics;
 	}
-
 }

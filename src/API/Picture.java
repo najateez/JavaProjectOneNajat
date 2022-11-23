@@ -25,4 +25,5 @@ public class Picture {
 		this.thumbnail = thumbnail;
 	}
 
+
 }

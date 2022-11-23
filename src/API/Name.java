@@ -24,5 +24,4 @@ public class Name {
 	public void setLast(String last) {
 		this.last = last;
 	}
-
 }

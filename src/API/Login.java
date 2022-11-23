@@ -3,7 +3,7 @@ package API;
 public class Login {
 	
 	private String uuid;
-	private String username;
+	private String userName;
 	private String password;
 	private String salt;
 	private String md5;
@@ -16,11 +16,11 @@ public class Login {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;
@@ -52,5 +52,4 @@ public class Login {
 	public void setSha256(String sha256) {
 		this.sha256 = sha256;
 	}
-
 }

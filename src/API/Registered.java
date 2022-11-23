@@ -18,4 +18,5 @@ public class Registered {
 		this.age = age;
 	}
 
+
 }

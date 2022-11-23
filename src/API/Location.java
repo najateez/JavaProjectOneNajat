@@ -5,7 +5,11 @@ public class Location {
 	private String city;
 	private String state;
 	private String country;
-	private String postcode;
+	private int postCode;
+	
+	private Street street;
+	private Coordinates coordinates;
+	private TimeZone timezone;
 	
 	public String getCity() {
 		return city;
@@ -25,11 +29,30 @@ public class Location {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public String getPostcode() {
-		return postcode;
+	public int getPostCode() {
+		return postCode;
 	}
-	public void setPostcode(String postcode) {
-		this.postcode = postcode;
+	public void setPostCode(int postCode) {
+		this.postCode = postCode;
 	}
+	public Street getStreet() {
+		return street;
+	}
+	public void setStreet(Street street) {
+		this.street = street;
+	}
+	public Coordinates getCoordinates() {
+		return coordinates;
+	}
+	public void setCoordinates(Coordinates coordinates) {
+		this.coordinates = coordinates;
+	}
+	public TimeZone getTimezone() {
+		return timezone;
+	}
+	public void setTimezone(TimeZone timezone) {
+		this.timezone = timezone;
+	}
+
 
 }

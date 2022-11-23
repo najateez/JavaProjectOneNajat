@@ -2,8 +2,8 @@ package API;
 
 public class Coordinates {
 	
-	String latitude;
-	String longitude;
+	private String latitude;
+	private String longitude;
 	
 	public String getLatitude() {
 		return latitude;
