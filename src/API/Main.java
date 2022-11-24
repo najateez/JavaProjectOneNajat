@@ -50,12 +50,14 @@ public class Main {
 				   		 e.printStackTrace();
 				   	 }
 				 System.out.println(response.body());
+				 System.out.println("*******************************");
 			break;
 		}case 1:{
 			System.out.println("Output should appear as data, using (API) (From JSON to data):-");
 		// URL-> Response -> String -> Define object -> Output.
-				for(int i=0;i<3;i++)
-				{
+			
+			   for(int i=0;i<2;i++)
+			      {
 					URL url= new URL("https://randomuser.me/api/");
 					HttpURLConnection conn= (HttpURLConnection) url.openConnection();
 					conn.setRequestMethod("GET");
@@ -100,22 +102,23 @@ public class Main {
 			}case 3:{
 				System.out.println("(randomuser.me) Read documentation consume with parameters:");
 			    System.out.println("1-multiple users. 2-pagination. 3-passwords. 4-seeding. with API Error");
-				
+			   
+			    System.out.println("Enter the No.of User you want: ");
+				   int numberOfUsers=s.nextInt();
+				   for(int i=0;i<numberOfUsers;i++)
+				      {
 				HttpClient hClient= HttpClient.newHttpClient();
-				HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://randomuser.me/api/?results=5&" //for multiusers
-						                                                       + "&page=7&results=2&seed=abc&"  //for pagination
-					                                                           + "&password=upper,lower,1-16&" //for passwords
-						                                                       + "&seed=foobar"))         //for seeds
-						                                                       .build();
+				HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://randomuser.me/api/?results=5&")) //for multiusers
+						                                                         .build();
 
 				HttpResponse<String> response= hClient.send(request, HttpResponse.BodyHandlers.ofString());
-				System.out.println("full json data from different classes: "+response.body());
+			//	System.out.println("full json data from different classes: "+response.body());
 				
 				// just will print data of things which i mentioned in website only
 				Gson gsonObj=new Gson();
 				
 				JsonToJavaObject data= gsonObj.fromJson(response.body().toString(),JsonToJavaObject.class);
-				
+				 
 				//multiusers
 				System.out.println("Multi users (from results class)");
 				                 //class object+ getClassName+ getIndex + getTheProperty
@@ -125,7 +128,20 @@ public class Main {
 				System.out.println(data.getResults().get(0).getCell());
 				System.out.println(data.getResults().get(0).getNat());
 				System.out.println("************************");
-				
+				      }
+				   
+				   
+				HttpClient hClient= HttpClient.newHttpClient();
+			    HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://randomuser.me/api/?page=7&results=2&seed=abc&" //for pagination
+						                                                           + "&password=upper,lower,1-16&" //for passwords
+							                                                       + "&seed=foobar"))         //for seeds
+							                                                       .build();
+					
+				HttpResponse<String> response= hClient.send(request, HttpResponse.BodyHandlers.ofString());
+				//	System.out.println("full json data from different classes: "+response.body());
+				Gson gsonObj=new Gson();
+				JsonToJavaObject data= gsonObj.fromJson(response.body().toString(),JsonToJavaObject.class);
+				   
 				//pagination
 				System.out.println("pagination (from info class)");
 				System.out.println(data.getInfo().getPage());
@@ -147,6 +163,7 @@ public class Main {
 				System.out.println("Handle exceptions (API error) (from HandleExceptionsAPIError class)");
 				HandleExceptionsAPIError apiErrorObj= gsonObj.fromJson(response.body().toString(),HandleExceptionsAPIError.class);
 				System.out.println(apiErrorObj.getError());
+				System.out.println("*******************************");
 				break;
 			}case 4:{
 				/*i made it separate because (can not be together with previous one/ case3),
@@ -163,7 +180,7 @@ public class Main {
 						                                                       .build();
 
 				HttpResponse<String> response= hClient.send(request, HttpResponse.BodyHandlers.ofString());
-				System.out.println("full json data from different classes: "+response.body());
+			//	System.out.println("full json data from different classes: "+response.body());
 				
 				// just will print data of things which i mentioned in website only
 				Gson gsonObj=new Gson();
