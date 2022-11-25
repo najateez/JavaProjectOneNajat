@@ -4,18 +4,17 @@ package API;
 public class Results {
 	
 	private String gender;
+	private Name name;
+	private Location location;
 	private String email;
+	Login login; //TODO: Make it private
+	DOB dob; //TODO: Make it private
+	Registered registered; //TODO: Make it private
 	private String phone;
 	private String cell;
+	Id id; //TODO: Make it private
+	Picture picture; //TODO: Make it private
 	private String nat;
-	
-	Name name;
-	Location location;
-	Login login;
-	DOB dob;
-	Registered registered;
-	Id id;
-	Picture pics;
 	
 	public String getGender() {
 		return gender;
@@ -83,10 +82,10 @@ public class Results {
 	public void setId(Id id) {
 		this.id = id;
 	}
-	public Picture getPics() {
-		return pics;
+	public Picture getPicture() {
+		return picture;
 	}
-	public void setPics(Picture pics) {
-		this.pics = pics;
+	public void setPicture(Picture picture) {
+		this.picture = picture;
 	}
 }

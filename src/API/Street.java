@@ -2,7 +2,7 @@ package API;
 
 public class Street {
 	
-	private int number;
+	private int number; // Please use Integer
 	private String name;
 	
 	public int getNumber() {

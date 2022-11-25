@@ -1,13 +1,12 @@
 package API;
 
 public class Location {
-	
+
+	private Street street;
 	private String city;
 	private String state;
 	private String country;
-	private int postCode;
-	
-	private Street street;
+	private Integer postCode;
 	private Coordinates coordinates;
 	private TimeZone timezone;
 	
