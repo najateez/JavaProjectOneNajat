@@ -3,7 +3,7 @@ package API;
 public class DOB {
 	
 	private String date;
-	private int age;
+	private Short age;
 	
 	public String getDate() {
 		return date;
@@ -11,10 +11,10 @@ public class DOB {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public int getAge() {
+	public Short getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Short age) {
 		this.age = age;
 	}
 

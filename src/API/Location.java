@@ -1,13 +1,12 @@
 package API;
 
 public class Location {
-	
+
+	private Street street;
 	private String city;
 	private String state;
 	private String country;
-	private int postCode;
-	
-	private Street street;
+	private Integer postCode;
 	private Coordinates coordinates;
 	private TimeZone timezone;
 	
@@ -29,10 +28,10 @@ public class Location {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public int getPostCode() {
+	public Integer getPostCode() {
 		return postCode;
 	}
-	public void setPostCode(int postCode) {
+	public void setPostCode(Integer postCode) {
 		this.postCode = postCode;
 	}
 	public Street getStreet() {

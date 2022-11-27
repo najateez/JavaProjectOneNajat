@@ -3,7 +3,7 @@ package API;
 public class Registered {
 	
 	private String date;
-	private int age;
+	private Integer age;
 	
 	public String getDate() {
 		return date;
@@ -11,10 +11,10 @@ public class Registered {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 

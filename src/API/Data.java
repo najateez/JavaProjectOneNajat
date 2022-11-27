@@ -2,9 +2,7 @@ package API;
 
 import java.util.List;
 
-//Q: Convert JSON to java object. (API).
-//means Convert API from website as JSON (String), and then display them in output as data. run the program.
-public class JsonToJavaObject {
+public class Data {
 	
 	private List<Results> results;
 	private Info info;
@@ -21,5 +19,7 @@ public class JsonToJavaObject {
 	public void setInfo(Info info) {
 		this.info = info;
 	}
+	
+	
 
 }

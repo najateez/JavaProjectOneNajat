@@ -2,13 +2,13 @@ package API;
 
 public class Street {
 	
-	private int number;
+	private Integer number; 
 	private String name;
 	
-	public int getNumber() {
+	public Integer getNumber() {
 		return number;
 	}
-	public void setNumber(int number) {
+	public void setNumber(Integer number) {
 		this.number = number;
 	}
 	public String getName() {
