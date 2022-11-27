@@ -6,8 +6,8 @@ import java.util.List;
 //means Convert API from website as JSON (String), and then display them in output as data. run the program.
 public class JsonToJavaObject {
 	
-	List<Results> results;
-	Info info;
+	private List<Results> results;
+	private Info info;
 	
 	public List<Results> getResults() {
 		return results;

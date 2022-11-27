@@ -27,7 +27,8 @@ public class Main {
 		System.out.println("1:Convert JSON to java object (API), (the way of taking (JSON Data) from website and covert it to string then display them in output as data)");
 		System.out.println("2:Exit");
 		System.out.println("3:Read documentation consume with parameters:1-multiple users. 2-pagination. 3-passwords. 4-seeding. with API Error");
-		System.out.println("4:Read documentation consume with parameters:5-Nationality. 6- IncludingExcluding");
+		System.out.println("4: 5-Nationality. 6- IncludingExcluding");
+		System.out.println("5: 7-Specifying a gender. 8-previous versions. 9-Miscellaneous."); 
 		System.out.println("*******************************");
 		System.out.println("Enter a number from menu: ");
          int a=s.nextInt();
@@ -100,7 +101,6 @@ public class Main {
 				isExit=false;
 				break;
 			}case 3:{
-				System.out.println("(randomuser.me) Read documentation consume with parameters:");
 			    System.out.println("1-multiple users. 2-pagination. 3-passwords. 4-seeding. with API Error");
 			   
 			    System.out.println("Enter the No.of User you want: ");
@@ -122,11 +122,11 @@ public class Main {
 				//multiusers
 				System.out.println("Multi users (from results class)");
 				                 //class object+ getClassName+ getIndex + getTheProperty
-				System.out.println(data.getResults().get(0).getGender());
-				System.out.println(data.getResults().get(0).getEmail());
-				System.out.println(data.getResults().get(0).getPhone());
-				System.out.println(data.getResults().get(0).getCell());
-				System.out.println(data.getResults().get(0).getNat());
+				System.out.println("Gender= "+ data.getResults().get(0).getGender());
+				System.out.println("Email= "+ data.getResults().get(0).getEmail());
+				System.out.println("Phone= "+ data.getResults().get(0).getPhone());
+				System.out.println("Cell= "+ data.getResults().get(0).getCell());
+				System.out.println("Nat= "+ data.getResults().get(0).getNat());
 				System.out.println("************************");
 				      }
 				   
@@ -144,19 +144,19 @@ public class Main {
 				   
 				//pagination
 				System.out.println("pagination (from info class)");
-				System.out.println(data.getInfo().getPage());
-				System.out.println(data.getInfo().getResults());
-				System.out.println(data.getInfo().getSeed());
+				System.out.println("Page= "+ data.getInfo().getPage());
+				System.out.println("Results= "+ data.getInfo().getResults());
+				System.out.println("Seed= "+ data.getInfo().getSeed());
 				System.out.println("************************");
 				
 				//passwords
 				System.out.println("passwords (from login class)");
-				System.out.println(data.getResults().get(0).getLogin().getPassword());
+				System.out.println("Password= "+data.getResults().get(0).getLogin().getPassword());
 				System.out.println("************************");
 				
 				//Seeding
 				System.out.println("Seeding (from info class)");
-				System.out.println(data.getInfo().getSeed());
+				System.out.println("Seed= "+data.getInfo().getSeed());
 				System.out.println("************************");
 				
 				//Handle exceptions (API error)
@@ -194,11 +194,46 @@ public class Main {
 				System.out.println("IncludingExcluding (from IncludingExcluding class)"); 
 				//including:
 				System.out.println(data.getResults().get(0).getGender());
-				System.out.println(data.getResults().get(0).getName());
+				System.out.println(data.getResults().get(0).getName().getLast());
 				System.out.println(data.getResults().get(0).getNat());
 				//Excluding: (Excluding always answer will be null).
 				System.out.println(data.getResults().get(0).getLogin());  
 			    System.out.println("*******************************");
+				break;
+			}case 5:{
+				//All remaining documentation from (https://randomuser.me/documentation).
+				System.out.println("7-Specifying a gender. 8-previous versions. 9-Miscellaneous."); 
+				
+				
+				HttpClient hClient= HttpClient.newHttpClient();
+				HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://randomuser.me/api/?gender=female&"  //for Specifying a gender
+						                                                      + "&https://randomuser.me/api/1.4/&"  // for previous version
+						                                                      + "&nat=gb,us,es&inc=name,gender"))   //for Miscellaneous
+						                                                         .build();
+
+				HttpResponse<String> response= hClient.send(request, HttpResponse.BodyHandlers.ofString());
+			//	System.out.println("full json data from different classes: "+response.body());
+
+				Gson gsonObj=new Gson();
+				
+				JsonToJavaObject data= gsonObj.fromJson(response.body().toString(),JsonToJavaObject.class);
+				 
+				//Specifying a gender
+				System.out.println("Specifying a gender (from results class)");             
+				System.out.println("Gender= "+ data.getResults().get(0).getGender());
+				System.out.println("************************");
+				
+				//previous versions
+				System.out.println("previous versions (from info class)");
+				System.out.println("version= "+ data.getInfo().getVersion());
+				System.out.println("************************");
+				
+				//Miscellaneous
+				System.out.println("Miscellaneous (from Results and Name class)");
+				System.out.println("Nat= "+ data.getResults().get(0).getNat()); //not inside including (parameter) in website, thats why result is null.
+				System.out.println("Name= "+ data.getResults().get(0).getName().getFirst());
+				System.out.println("Gender= "+ data.getResults().get(0).getGender());
+				System.out.println("************************");		
 				break;
 			}default:{
 				System.out.println("It is not an option. Try again and enter a number from menu above.");

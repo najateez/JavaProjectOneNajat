@@ -9,13 +9,13 @@ public class Results {
 	private String cell;
 	private String nat;
 	
-	Name name;
-	Location location;
-	Login login;
-	DOB dob;
-	Registered registered;
-	Id id;
-	Picture pics;
+	private Name name;
+	private Location location;
+	private Login login;
+	private DOB dob;
+	private Registered registered;
+	private Id id;
+	private Picture pics;
 	
 	public String getGender() {
 		return gender;
