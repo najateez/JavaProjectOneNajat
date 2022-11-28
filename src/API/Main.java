@@ -1,5 +1,6 @@
 package API;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -30,6 +31,7 @@ public class Main {
 		System.out.println("3:Read documentation consume with parameters:1-multiple users. 2-pagination. 3-passwords. 4-seeding. with API Error");
 		System.out.println("4: 5-Nationality. 6- IncludingExcluding");
 		System.out.println("5: 7-Specifying a gender. 8-previous versions. 9-Miscellaneous."); 
+		System.out.println("6: Covert API data to file as (Json shape)"); 
 		System.out.println("*******************************");
 		System.out.println("Enter a number from menu: ");
          Integer choice=sIn.nextInt();
@@ -165,7 +167,7 @@ public class Main {
 				System.out.println("************************");
 
 				if(data.getResults().get(0).getLogin().getPassword() != null){
-					System.out.println(data.getResults().get(0).getLogin().getPassword());
+					System.out.println(data.getResults().get(0).getLogin().getPassword()); //if there is password will print if no will not print and not effect.
 				}
 
 				//Seeding
@@ -176,7 +178,7 @@ public class Main {
 				//Handle exceptions (API error)
 				if(response.body().contains("error")){
 					HandleExceptionsAPIError apiErrorObj= gsonObj.fromJson(response.body().toString(),HandleExceptionsAPIError.class);
-					System.out.println(apiErrorObj.getError());
+					System.out.println(apiErrorObj.getError()); // if there is any API Error will show, if no error will appear null.
 					System.out.println("*******************************");
 					break;
 				}
@@ -204,16 +206,16 @@ public class Main {
 				Data data= gsonObj.fromJson(response.body().toString(), Data.class);
 				//Nationality
 				System.out.println("Nationality (from Nationality class)");
-				System.out.println(data.getResults().get(0).getNat());
+				System.out.println("Nat= "+data.getResults().get(0).getNat());
 				System.out.println("************************");
 				//IncludingExcluding
 				System.out.println("IncludingExcluding (from IncludingExcluding class)");
 				//including:
-				System.out.println(data.getResults().get(0).getGender());
-				System.out.println(data.getResults().get(0).getName().getLast());
-				System.out.println(data.getResults().get(0).getNat());
+				System.out.println("Gender= "+ data.getResults().get(0).getGender());
+				System.out.println("Name= "+ data.getResults().get(0).getName().getLast());
+				System.out.println("Nat= "+ data.getResults().get(0).getNat());
 				//Excluding: (Excluding always answer will be null).
-				System.out.println(data.getResults().get(0).getLogin());
+				System.out.println("Login= "+data.getResults().get(0).getLogin());
 			    System.out.println("*******************************");
 				break;
 			}case 5:{
@@ -250,6 +252,28 @@ public class Main {
 				System.out.println("Name= "+ data.getResults().get(0).getName().getFirst());
 				System.out.println("Gender= "+ data.getResults().get(0).getGender());
 				System.out.println("************************");		
+				break;
+			}case 6:{
+				System.out.println("Covert API data to file as (Json shape)");
+				
+				//API Data to file as JSON Shape
+				//URL->Response->put API Data to file and show them as JSON String(Output).
+				HttpClient hClient= HttpClient.newHttpClient();
+				HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://randomuser.me/api/"))
+						                                                         .build();
+				
+				HttpResponse<String> response= hClient.send(request, HttpResponse.BodyHandlers.ofString());
+				
+				String JsonR= response.body();
+				
+				try {
+					FileWriter file= new FileWriter("APIDataToFile.txt");
+					file.write(JsonR.toString());
+					file.close();
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+				System.out.println("JSON File created!.");
 				break;
 			}default:{
 				System.out.println("It is not an option. Try again and enter a number from menu above.");
